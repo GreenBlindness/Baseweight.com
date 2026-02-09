@@ -1,0 +1,179 @@
+@media print {
+    @page {
+        margin: 1cm;
+        size: auto;
+    }
+
+    body {
+        background: white !important;
+        color: black !important;
+        font-size: 10pt;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Force darker text execution */
+    p,
+    span,
+    div,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    td,
+    th,
+    li,
+    a {
+        color: #000 !important;
+        text-shadow: none !important;
+    }
+
+    /* Specifically target muted text to be dark grey instead of light grey */
+    .text-muted,
+    [style*="color:var(--color-text-muted)"],
+    [style*="color: var(--color-text-muted)"] {
+        color: #444 !important;
+        /* Dark grey, not faint */
+        opacity: 1 !important;
+    }
+
+    /* Preserve colors in these blocks */
+    .walk-summary-section,
+    .walk-header-section {
+        background: transparent !important;
+        /* Let body white show through or keep subtle? User said "background isn't coloured just the boxes" */
+        /* Actually user said "make it so the background isn't coloured just the boxes and data cummary" */
+        /* This implies they want the summary box to keep its styling/border/maybe slight tint? */
+        /* Let's try to keep borders and some structure. */
+        border: 1px solid #ccc !important;
+    }
+
+    /* Pie Chart & Dots */
+    .pie-segment,
+    .legend-dot {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Hide Navigation & Sidebar */
+    .app-header,
+    .walks-sidebar,
+    .sidebar-outer,
+    #sidebar-add-walk,
+    .duplicate-walk-btn,
+    .delete-walk-btn,
+    .walk-nav-item,
+    .pie-chart-container,
+    .add-item-row,
+    .remove-item-btn,
+    .theme-toggle,
+    .main-nav {
+        display: none !important;
+    }
+
+    /* Layout Reset */
+    #app {
+        display: block;
+        height: auto;
+        overflow: visible;
+        padding: 0;
+        max-width: nonebox;
+        width: 100%;
+        margin: 0;
+    }
+
+    /* Expand Main Content */
+    #walk-main-scroll {
+        position: static !important;
+        overflow: visible !important;
+        height: auto !important;
+        padding: 0 !important;
+        background: white !important;
+        border: none !important;
+        width: 100% !important;
+    }
+
+    /* Hide Actions */
+    #action-csv,
+    #action-share,
+    #action-print,
+    #unit-toggle-btn {
+        display: none !important;
+    }
+
+    /* Table tweaks */
+    .data-table {
+        width: 100% !important;
+        min-width: 0 !important;
+        border: 1px solid #000 !important;
+        border-collapse: collapse !important;
+    }
+
+    .data-table th,
+    .data-table td {
+        color: black !important;
+        border: 1px solid #ddd !important;
+        padding: 4px !important;
+        font-size: 0.85rem !important;
+    }
+
+    /* Inputs as clean text */
+    input,
+    textarea {
+        border: none !important;
+        padding: 0 !important;
+        background: transparent !important;
+        color: black !important;
+        width: auto !important;
+        resize: none !important;
+        opacity: 1 !important;
+    }
+
+    /* Hide toggles unless active (maybe just icon?) */
+    .btn-icon-toggle {
+        display: none !important;
+    }
+
+    /* Show active icons as indicators maybe? 
+       Actually user wants a simple list. Let's hide toggles generally 
+       unless we want to show "Worn" status. 
+       Let's keep Worn/Consumable status visible if active as text/icon?
+       The inputs are hidden, just icons. */
+
+    .btn-icon-toggle.active {
+        display: inline-block !important;
+        color: black !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    /* Show Checkbox Column */
+    .print-only {
+        display: table-cell !important;
+        width: 30px !important;
+        text-align: center !important;
+        vertical-align: middle !important;
+    }
+
+    .print-check-box {
+        width: 14px;
+        height: 14px;
+        border: 1px solid #333;
+        display: inline-block;
+        margin: 0 auto;
+    }
+
+    /* Summary Section */
+    .summary-section {
+        border: 1px solid #ccc !important;
+        background: transparent !important;
+        break-inside: avoid;
+        margin-bottom: 20px !important;
+    }
+}
+
+.print-only {
+    display: none;
+}

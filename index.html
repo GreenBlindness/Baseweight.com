@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>baseweight.com</title>
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+        <header class="app-header">
+            <div class="logo-wrapper" style="display:flex; align-items:center; gap:8px;">
+                <!-- Filled Blue Mountain SVG -->
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;">
+                    <path d="M12 3L2 20H22L12 3Z" fill="var(--color-primary)" />
+                    <path d="M12 3L16 11H8L12 3Z" fill="rgba(255,255,255,0.2)" /> <!-- subtle highlight -->
+                </svg>
+                <div class="logo">baseweight.com</div>
+            </div>
+            <div class="header-actions">
+                <nav class="main-nav">
+                    <button class="nav-btn active" data-view="inventory">Inventory</button>
+                    <button class="nav-btn" data-view="walks">Walks</button>
+                </nav>
+                <div class="theme-toggle">
+                    <span class="theme-toggle-text">Dark Mode</span>
+                    <div style="position:relative;">
+                        <input type="checkbox" id="theme-switch" class="theme-switch-input" />
+                        <label for="theme-switch" class="theme-switch-label">
+                            <span class="theme-switch-ball"></span>
+                            <span class="visually-hidden">Toggle Dark Mode</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main id="main-content">
+            <!-- Dynamic Content Loaded Here -->
+            <div class="loading-state">Loading your gear...</div>
+        </main>
+    </div>
+
+    <!-- Scripts: Order Matters! -->
+    <script src="js/utils.js"></script>
+    <script src="js/state.js"></script>
+    <script src="js/components/inventory.js"></script>
+    <script src="js/components/walks.js"></script>
+    <script src="js/components/meals.js"></script>
+    <script src="js/components/dream.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
